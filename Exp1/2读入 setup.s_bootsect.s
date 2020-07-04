@@ -1,3 +1,4 @@
+！读入 setup.s
 ！核心代码
 
 SETUPLEN=2
