@@ -1,11 +1,12 @@
-！读入 setup.s
-！核心代码
+!核心代码
 
-SETUPLEN=2
-SETUPSEG=0x07e0
+SETUPLEN=2          !linux-0.11为4个扇区
+SETUPSEG=0x07e0     !linux-0.11为0x9020
 
 entry _start
 _start:
+
+!打印HongOS is Loading...
     mov ah,#0x03       ! 首先读入光标位置
     xor bh,bh
     int 0x10
@@ -15,26 +16,29 @@ _start:
     mov bp,#msg1
     
     mov ax,#0x07c0
-    mov es,ax
+    mov es,ax             !linux-0.11的es为0x9000
+    
     mov ax,#0x1301
     int 0x10
-    
-load_setup:              ！把setup.s读进内存
-    mov dx,#0x0000
-    mov cx,#0x0002       ！2号扇区开始读起
-    mov bx,#0x0200       ！es:bx=内存地址=512字节
-    mov ax,#0x0200+SETUPLEN     ！读（02）+扇区个数（SETUPLEN）
+  
+!-------------把setup.s读进内存的核心代码-------------------------------------------------------------------------------
+load_setup:                   
+    mov dx,#0x0000  
+    mov cx,#0x0002            !2号扇区开始读起
+    mov bx,#0x0200            !es:bx,所以linux-0.11为0x90200，即setup.c放的开始位置
+    mov ax,#0x0200+SETUPLEN   !读（02）+扇区个数（SETUPLEN）
     int 0x13
-    jnc ok_load_setup
+    jnc ok_load_setup         !正常读取后，跳转到ok_load_setup
     
-    mov dx,#0x0000      ！复位
+    
+    mov dx,#0x0000            !出错时，复位
     mov ax,#0x0000
-    
     int 0x13
-    jmp load_setup       ！如果出问题，尝试重新读取
+    jmp load_setup            !尝试重新读取
        
 ok_load_setup:
-    jmpi    0,SETUPSEG   ！此处我们没有搬移 bootsect，所以跳转到7e00; linux0.11有搬移，则需跳转到90200
+    jmpi    0,SETUPSEG        !处我们没有搬移 bootsect，所以跳转到7e00; linux0.11有搬移，则需跳转到90200
+!------------------------------------------------------------------------------------------------------
 
 msg1:                   ! msg1 处放置字符串 
     .byte   13,10
