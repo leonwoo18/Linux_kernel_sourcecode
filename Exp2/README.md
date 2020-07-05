@@ -7,3 +7,4 @@
 ### setup_1_屏幕输出功能.s   :  主要实现屏幕输出Now we are in SETUP的功能的核心代码
 ### setup_2_显示硬件参数.s   :  主要实现在屏幕上将获得的硬件参数显示出来的核心代码
 ## setup.s   :   是在linux-0.11的完整代码上进行的修改 
+![](pic/setup.png)
