@@ -12,6 +12,10 @@ function：将name的内容拷贝到msg,name的长度不超过23个字符
 return：拷贝的字符数。如果name的字符个数超过了23,则返回“­-1”,并置errno为EINVAL。
 ****/
 {
+/***
+下面的printk（）供iam.c测试用
+printk("congratulations! system call successfully\n");
+****/
 	int i;
 	//临时存储 输入字符串 操作失败时不影响msg
 	char tmp[30];
