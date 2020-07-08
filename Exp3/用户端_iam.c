@@ -3,7 +3,7 @@
 int main(int argc, char *argv[])
 {
     int r;
-    if(argc<2)
+    if(argc!=2)
     {
         puts("please input your name.\n"); /*提醒用户执行文件时，带上名字参数*/
         r=-1;
