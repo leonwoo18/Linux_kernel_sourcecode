@@ -23,8 +23,8 @@ extern int sys_whoami(); </br>
 
 ### 4:编写一个文件who.c，放在linux-0.11/kernel/下
 **who.c主要实现 sys_iam() 和 sys_whoami()** </br>
-**sys_iam()** 用 **get_fs_byte()** 函数去拿到用户态的数据</br>
-**sys_whoami()** 用 **put_fs_byte()** 函数把内核数据送到用户态</br>
+*sys_iam()* 用 *get_fs_byte()* 函数去拿到用户态的数据</br>
+*sys_whoami()* 用 *put_fs_byte()* 函数把内核数据送到用户态</br>
 
 ### 5: 修改linux-0.11/kernel/Makefile
 在OBJS后面加上who.o </br>
