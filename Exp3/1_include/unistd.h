@@ -147,6 +147,7 @@ errno = -__res; \
 return -1; \
 }
 
+/*参数传进来后，进行宏展开 */
 #define _syscall1(type,name,atype,a) \
 type name(atype a) \
 { \
