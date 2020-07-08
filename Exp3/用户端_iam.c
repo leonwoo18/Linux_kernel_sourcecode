@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
     else
     {
         iam(argv[1]);  //iam()会去调用封装在inputname.h中的接口函数
+                       //argv[1]为用户输入的参数
         r=0;
     }
     return r;
