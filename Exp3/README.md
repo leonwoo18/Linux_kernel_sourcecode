@@ -34,7 +34,7 @@ who.s who.o: who.c ../include/linux/kernel.h ../include/unistd.h </br>
 ### 将修改过的内核态文件，复制到用户态下
 将文件~/oslab/linux-0.11/include/unistd.h复制到路径~/oslab/hdc/usr/include下；</br>
 将文件~/oslab/linux-0.11/include/linux/sys.h复制到路径~/oslab/hdc/usr/include/linux下。</br>
-### 在用户端编写一个测试用的iam.c,验证成功实现系统调用sys_iam(),并打印出"successfully"
+### 在用户端编写一个测试用的printk.c,验证成功实现系统调用sys_iam(),并打印出"successfully"
 ![](pic/syscall_success.png)
 ### 封装成头文件(include/inputname.h)：
 将sys_iam()封装在宏_syscall1(--,iam,--,--) ，用户空间直接用接口函数iam()</br>
