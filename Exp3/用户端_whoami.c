@@ -1,5 +1,5 @@
-#include<usname.h>
-#include<stdio.h>
+#include <usname.h>
+#include <stdio.h>
 int main(void)
 {
     char name[24];   //在用户态申请一个name数组空间
