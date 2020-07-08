@@ -70,8 +70,9 @@ extern int sys_sgetmask();
 extern int sys_ssetmask();
 extern int sys_setreuid();
 extern int sys_setregid();
-extern int sys_whoami();   /*添加进来的*/
 extern int sys_iam();      /*添加进来的*/
+extern int sys_whoami();   /*添加进来的*/
+
 
 /*在数组后面加上sys_iam,sys_whoami*/
 fn_ptr sys_call_table[] = { sys_setup, sys_exit, sys_fork, sys_read,
