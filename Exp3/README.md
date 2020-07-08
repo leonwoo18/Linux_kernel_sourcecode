@@ -3,6 +3,10 @@
 #define __NR_iam        72</br>
 #define __NR_whoami   	73</br>
 ### 2:查看linux-0.11/kernel/system_call.s
+
+修改系统调用的总数</br>
+nr_system_calls = 74</br>
+</br>
 .globl system_call</br>
 system_call:</br>
 </br>
