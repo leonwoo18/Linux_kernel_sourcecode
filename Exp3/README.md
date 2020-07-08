@@ -37,7 +37,7 @@ who.s who.o: who.c ../include/linux/kernel.h ../include/unistd.h </br>
 ### 在用户端编写一个测试用的iam.c,验证成功实现系统调用sys_iam(),并打印出"successfully"
 ![](pic/syscall_success.png)
 ### 封装成头文件(include/inputname.h)：
-将sys_iam封装_syscall2(***,whoami,***,***,*** ***,***)，用户空间直接用接口函数iam()
-将sys_whoami封装_syscall1(***,iam,***,***) ，用户空间直接用接口函数iam()
+将sys_iam()封装在宏_syscall1(--,iam,--,--) ，用户空间直接用接口函数iam()</br>
+将sys_whoami()封装在宏_syscall2(--,whoami,--,--,--,--)，用户空间直接用接口函数whoami()</br>
 ### 结果
 ![](pic/result.jpg)
