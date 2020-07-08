@@ -19,3 +19,4 @@ extern int sys_whoami(); </br>
 在OBJS后面加上who.o </br>
 在 Dependencies:下加上以下这一行</br>
 who.s who.o: who.c ../include/linux/kernel.h ../include/unistd.h
+### 6:在用户端编写一个iam.c,调用函数iam()，测试一下
