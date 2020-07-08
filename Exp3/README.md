@@ -24,8 +24,9 @@ extern int sys_whoami(); </br>
 函数主要实现 sys_iam() 和 sys_whoami()
 ### 5: 修改linux-0.11/kernel/Makefile
 在OBJS后面加上who.o </br>
-在 Dependencies:下加上以下这一行</br>
+在 Dependencies:下加上以下这两行</br>
 who.s who.o: who.c ../include/linux/kernel.h ../include/unistd.h
+  ../include/asm/segment.h ../include/string.h ../include/errno.h
 ### 6:将修改过的内核态文件，复制到用户态下
 将文件~/oslab/linux-0.11/include/unistd.h复制到路径~/oslab/hdc/usr/include下；</br>
 将文件~/oslab/linux-0.11/include/linux/sys.h复制到路径~/oslab/hdc/usr/include/linux下。</br>
