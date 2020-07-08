@@ -12,8 +12,8 @@ nr_system_calls = 74</br>
 </br>
 .globl system_call</br>
 system_call:</br>
-</br>
-call sys_call_table(,%eax,4)    #关键语句，eax 中放的是系统调用号，sys_call_table 一定是一个函数指针数组的起始地址，定义在 include/linux/sys.h 中</br>
+ #关键语句</br>
+call sys_call_table(,%eax,4)   #eax 中放的是系统调用号，sys_call_table 一定是一个函数指针数组的起始地址，定义在 include/linux/sys.h 中</br>
 ### 3:修改linux-0.11/inclue/linux/sys.h
 插入这两行</br>
 extern int sys_iam();     </br> 
