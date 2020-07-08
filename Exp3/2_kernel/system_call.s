@@ -64,6 +64,7 @@ nr_system_calls = 72
  * Ok, I get parallel printer interrupts while using the floppy for some
  * strange reason. Urgel. Now I just ignore them.
  */
+ /* system_call 用 .globl 修饰为其他函数可见 */
 .globl system_call,sys_fork,timer_interrupt,sys_execve
 .globl hd_interrupt,floppy_interrupt,parallel_interrupt
 .globl device_not_available, coprocessor_error
