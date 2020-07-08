@@ -8,7 +8,7 @@ system_call:</br>
 </br>
 call sys_call_table(,%eax,4)    #关键语句，eax 中放的是系统调用号，sys_call_table 一定是一个函数指针数组的起始地址，定义在 include/linux/sys.h 中</br>
 ### 3:修改linux-0.11/inclue/linux/sys.h
-插入这两行
+插入这两行</br>
 extern int sys_iam();     </br> 
 extern int sys_whoami(); </br>
 </br>
@@ -17,4 +17,5 @@ extern int sys_whoami(); </br>
 函数主要实现 sys_iam() 和 sys_whoami()
 ### 5: 修改linux-0.11/kernel/Makefile
 在OBJS后面加上who.o </br>
-在 Dependencies:下加上以下这一行who.s who.o: who.c ../include/linux/kernel.h ../include/unistd.h
+在 Dependencies:下加上以下这一行</br>
+who.s who.o: who.c ../include/linux/kernel.h ../include/unistd.h
