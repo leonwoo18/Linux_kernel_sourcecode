@@ -50,8 +50,9 @@ dep:
 	(cd blk_drv; make dep)
 
 ### Dependencies:
-#加上以下这一行
+#加上以下这两行
 who.s who.o: who.c ../include/linux/kernel.h ../include/unistd.h
+  ../include/asm/segment.h ../include/string.h ../include/errno.h
 exit.s exit.o: exit.c ../include/errno.h ../include/signal.h \
   ../include/sys/types.h ../include/sys/wait.h ../include/linux/sched.h \
   ../include/linux/head.h ../include/linux/fs.h ../include/linux/mm.h \
