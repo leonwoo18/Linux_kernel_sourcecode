@@ -1,3 +1,6 @@
+## 系统调用sys_iam()整体思路图
+![](pic/sys_iam().png)
+
 ### 1:修改linux-0.11/include/unistd.h
 插入这两行</br>
 #define __NR_iam        72</br>
