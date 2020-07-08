@@ -1,11 +1,11 @@
 ### 1:修改linux-0.11/include/unistd.h
-插入这两行
-#define __NR_iam        72
-#define __NR_whoami	73
+插入这两行</br>
+#define __NR_iam        72</br>
+#define __NR_whoami   	73</br>
 ### 2:查看linux-0.11/kernel/system_call.s
-.globl system_call
-system_call:
-call sys_call_table(,%eax,4)    #关键语句，eax 中放的是系统调用号，sys_call_table 一定是一个函数指针数组的起始地址，定义在 include/linux/sys.h 中
+.globl system_call</br>
+system_call:</br>
+call sys_call_table(,%eax,4)    #关键语句，eax 中放的是系统调用号，sys_call_table 一定是一个函数指针数组的起始地址，定义在 include/linux/sys.h 中</br>
 ### 3:修改linux-0.11/inclue/linux/sys.h
 插入这两行
 extern int sys_iam();      
