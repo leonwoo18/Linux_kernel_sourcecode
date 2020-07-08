@@ -6,6 +6,6 @@ _syscall1(int, iam, const char*, name);    /* iam()在用户空间的接口函�
 
 int main(int argc,char ** argv)
 {
-	
+	iam(argv[1]);
 	return 0;
 }
