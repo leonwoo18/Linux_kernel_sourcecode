@@ -20,8 +20,8 @@ extern int sys_iam();     </br>
 extern int sys_whoami(); </br>
 </br>
 在sys_call_table[]数组后面加上sys_iam,sys_whoami  </br>
-### 4:编写一个函数who.c，放在linux-0.11/kernel/下
-函数主要实现 sys_iam() 和 sys_whoami()
+### 4:编写一个文件who.c，放在linux-0.11/kernel/下
+** who.c主要实现 sys_iam() 和 sys_whoami() **
 ### 5: 修改linux-0.11/kernel/Makefile
 在OBJS后面加上who.o </br>
 在 Dependencies:下加上以下这两行</br>
