@@ -24,12 +24,17 @@ int sys_iam(const char * name)
 	if(len<24)
             strcpy(username, temp);
         else
-	    int n=-EINVAL;
-	return n;     //-(EINVAL)即-22，存入到EAX寄存器
-	              //调用返回后，从 EAX 取出返回值，存入 __res，__res来自unistd.h中的_syscalln宏展开
-	              //即此时__res=-22,宏展开的代码通过对 __res 的判断决定传给 API 的调用者什么样的返回值
-	              //errno = -__res，即errno=22，调用者就可以通过errno的值定位错误了
-	              //最后真正的返回值return -1;
+	    len=-EINVAL;     //-(EINVAL)即-22，出错时，存入到EAX寄存器
+	                     //调用返回后，从 EAX 取出返回值，存入 __res，__res来自unistd.h中的_syscalln宏展开    
+	                     //即此时__res=-22,宏展开的代码通过对 __res 的判断决定传给 API 的调用者什么样的返回值
+	                     //errno = -__res，即errno=22，调用者就可以通过errno的值定位错误了
+	                      //最后真正的返回值return -1;
+	
+	return len;   //正常时，返回字符串的长度，testlab2.sh评分时要用到。    
+	              
+	             
+	              
+	             
 }
 
 int sys_whoami(char* name, unsigned int size)
