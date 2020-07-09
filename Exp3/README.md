@@ -1,4 +1,4 @@
-## 系统调用sys_iam()整体思路图
+## 系统调用整体思路图
 ![](pic/sys_iam()_printk.png)
 
 ### 1:修改linux-0.11/include/unistd.h
@@ -37,7 +37,7 @@ who.s who.o: who.c ../include/linux/kernel.h ../include/unistd.h </br>
 ### 在用户端编写一个测试用的printk.c,验证成功实现系统调用sys_iam(),并打印出"successfully"
 ![](pic/test_result.jpg)
 ### 测试sys_iam()系统调用的思路
-![](pic/test_printk.jpg)
+![](pic/test_printk.png)
 ### 封装成头文件(include/inputname.h)：
 将sys_iam()封装在宏_syscall1(--,iam,--,--) ，用户空间直接用接口函数iam()</br>
 将sys_whoami()封装在宏_syscall2(--,whoami,--,--,--,--)，用户空间直接用接口函数whoami()</br>
