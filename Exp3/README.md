@@ -20,12 +20,13 @@ system_call:
 call sys_call_table(,%eax,4)   #eax 中放的是系统调用号，sys_call_table 一定是一个函数指针数组的起始地址，定义在 include/linux/sys.h 中
 ```
 ### 3:修改linux-0.11/inclue/linux/sys.h
-插入这两行</br>
-extern int sys_iam();     </br> 
-extern int sys_whoami(); </br>
-</br>
-在sys_call_table[]数组后面加上sys_iam,sys_whoami  </br>
+插入这两行
+```shell
+extern int sys_iam();    
+extern int sys_whoami(); 
 
+在sys_call_table[]数组后面加上sys_iam,sys_whoami  
+```shell
 ### 4:编写一个文件who.c，放在linux-0.11/kernel/下
 **who.c主要实现 sys_iam() 和 sys_whoami()** </br>
 *sys_iam()* 用 *get_fs_byte()* 函数去拿到用户态的数据</br>
