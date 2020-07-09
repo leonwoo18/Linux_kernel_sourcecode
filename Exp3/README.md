@@ -3,8 +3,10 @@
 
 ### 1:修改linux-0.11/include/unistd.h
 插入这两行</br>
-#define __NR_iam        72</br>
-#define __NR_whoami   	73</br>
+```shell
+#define __NR_iam        72
+#define __NR_whoami   	73
+```
 ### 2:查看linux-0.11/kernel/system_call.s
 
 修改系统调用的总数</br>
