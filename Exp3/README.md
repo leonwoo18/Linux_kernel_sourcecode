@@ -42,4 +42,4 @@ who.s who.o: who.c ../include/linux/kernel.h ../include/unistd.h </br>
 将sys_iam()封装在宏_syscall1(--,iam,--,--) ，用户空间直接用接口函数iam()</br>
 将sys_whoami()封装在宏_syscall2(--,whoami,--,--,--,--)，用户空间直接用接口函数whoami()</br>
 ### 结果
-![](pic/result.jpg)
+![](pic/result.png)
